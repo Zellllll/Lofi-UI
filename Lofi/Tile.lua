@@ -7,6 +7,10 @@ local TilePositions = {
 }
 
 function Tile:New(icon, label, Window)
+    if Window.Tiles >= 4 then
+        warn("[Lofi] Max tile limit reached!")
+        return
+    end
     local Tile = {}
 
     Tile.Object = Lofi.require("Lofi\\Base Objects\\Tile.lua")()
