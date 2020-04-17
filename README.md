@@ -2,12 +2,17 @@
 
 Example:
 ```lua
+local DeveloperMode = false
 Lofi = {}
 
 function Lofi.require(path)
     if type(path) == "string" then
-    	path = path:gsub("\\", "/")
-        return loadstring(game:HttpGet("https://raw.githubusercontent.com/LAOnGithub/Lofi-UI/master/"..path, true))()
+    	if DeveloperMode then
+	  return loadfile(path)()
+	else
+    	  path = path:gsub("\\", "/")
+          return loadstring(game:HttpGet("https://raw.githubusercontent.com/LAOnGithub/Lofi-UI/master/"..path, true))()
+	end
     elseif type(path) == "number" then
         return loadstring(game:GetObjects(path)[1].Source)()
     end
