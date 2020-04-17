@@ -2,11 +2,17 @@
 
 Example:
 ```lua
+local DeveloperMode = false
 Lofi = {}
 
 function Lofi.require(path)
     if type(path) == "string" then
-        return loadstring(game:HttpGet("https://raw.githubusercontent.com/LAOnGithub/Lofi-UI/master/"..path, true))()
+    	if DeveloperMode then
+	  return loadfile(path)()
+	else
+    	  path = path:gsub("\\", "/")
+          return loadstring(game:HttpGet("https://raw.githubusercontent.com/LAOnGithub/Lofi-UI/master/"..path, true))()
+	end
     elseif type(path) == "number" then
         return loadstring(game:GetObjects(path)[1].Source)()
     end
@@ -15,7 +21,7 @@ end
 Lofi.require("Lofi\\Main.lua")
 local Window = Lofi:Window()
 local Test = Window:Tile("T", "Test")
-local Groupbox = Test:Groupbox(UDim2.new(0, 25, 0, 70), UDim2.new(0, 350, 0, 300), "YAY")
+local Groupbox = Test:Groupbox(UDim2.new(0, 25, 0, 70), UDim2.new(0, 350, 0, 300), "Groupbox")
 Groupbox:Checkbox("Checkbox", function(Value)
 	print("Checkbox: Value changed to: " .. tostring(Value))
 end)
