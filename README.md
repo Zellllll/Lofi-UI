@@ -6,6 +6,7 @@ Lofi = {}
 
 function Lofi.require(path)
     if type(path) == "string" then
+    	path = path:gsub("\\", "/")
         return loadstring(game:HttpGet("https://raw.githubusercontent.com/LAOnGithub/Lofi-UI/master/"..path, true))()
     elseif type(path) == "number" then
         return loadstring(game:GetObjects(path)[1].Source)()
