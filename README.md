@@ -21,7 +21,7 @@ end
 Lofi.require("Lofi\\Main.lua")
 local Window = Lofi:Window()
 local Test = Window:Tile("T", "Test")
-local Groupbox = Test:Groupbox(UDim2.new(0, 25, 0, 70), UDim2.new(0, 350, 0, 300), "YAY")
+local Groupbox = Test:Groupbox(UDim2.new(0, 25, 0, 70), UDim2.new(0, 350, 0, 300), "Groupbox")
 Groupbox:Checkbox("Checkbox", function(Value)
 	print("Checkbox: Value changed to: " .. tostring(Value))
 end)
