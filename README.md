@@ -1,4 +1,6 @@
 # Lofi-UI
+
+Example:
 ```lua
 Lofi = {}
 
