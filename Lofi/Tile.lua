@@ -13,7 +13,7 @@ function Tile:New(icon, label, Window)
     end
     local Tile = {}
 
-    Tile.Object = Lofi.require("Lofi\\Base Objects\\Tile.lua")()
+    Tile.Object = Lofi.require("Lofi/Base Objects/Tile.lua")()
     Tile.Object.Name = icon
     Tile.Object.Icon.Text = icon
     Tile.Object.Label.Text = label
@@ -28,17 +28,17 @@ function Tile:New(icon, label, Window)
 
     Window.Tiles = Window.Tiles + 1
 
-    Lofi.require("Lofi\\Animations\\Tile.lua")(Tile, Window)
+    Lofi.require("Lofi/Animations/Tile.lua")(Tile, Window)
 
     function Tile:TabList(position, size, options, callback)
         options = options or {}
-        local TabList = Lofi.require("Lofi\\TabList.lua"):New(position, size, options, callback, Tile)
+        local TabList = Lofi.require("Lofi/TabList.lua"):New(position, size, options, callback, Tile)
 
         return TabList
     end
 
     function Tile:Groupbox(position, size, label)
-        local Groupbox = Lofi.require("Lofi\\Groupbox.lua"):New(position, size, label, Tile)
+        local Groupbox = Lofi.require("Lofi/Groupbox.lua"):New(position, size, label, Tile)
 
         return Groupbox
     end
