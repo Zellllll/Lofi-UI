@@ -3,7 +3,7 @@ Lofi.UI = {}
 
 --// Create UI Objects \\--
 function Lofi:Window()
-    local Window = Lofi.require("Lofi\\Window.lua"):New()
+    local Window = getgenv().Lofi.require("Lofi\\Window.lua"):New()
 
     return Window
 end
